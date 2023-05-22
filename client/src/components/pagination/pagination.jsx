@@ -1,34 +1,25 @@
 import React from "react";
-import style from "./Paginado.module.css";
+import "./Pagination.css";
 
-export default function Paginado({
-  pokemonsPerPage,
-  allPokemons,
-  paginado,
-  page,
-}) {
+function Pagination({ recipesPage, recipesAll, Page }) {
   const pageNumbers = [];
 
-  for (let i = 0; i < Math.ceil(allPokemons / pokemonsPerPage); i++) {
+  for (let i = 0; i < Math.ceil(recipesAll / recipesPage); i++) {
     pageNumbers.push(i + 1);
   }
-
   return (
-    <nav>
-      <ul className={style.pagination}>
-        {pageNumbers &&
-          pageNumbers.map((number) => (
-            <li key={number} style={{ listStyle: "none" }}>
-              <button
-                className={style.buttons}
-                style={page === number ? { color: "white" } : {}}
-                onClick={() => paginado(number)}
-              >
-                {number}
-              </button>
-            </li>
-          ))}
-      </ul>
-    </nav>
+    <div>
+      {pageNumbers.map((number) => (
+        <button
+          className="pagedButton"
+          key={number}
+          onClick={() => Page(number)}
+        >
+          {number}
+        </button>
+      ))}
+    </div>
   );
 }
+
+export default Pagination;

@@ -14,6 +14,7 @@ const router = Router();
 // Si no existe ninguna receta mostrar un mensaje adecuado
 router.get("/", async (req, res, next) => {
   const { name } = req.query;
+  console.log(name);
   try {
     let AllRecipes = await get_AllRecipes();
 

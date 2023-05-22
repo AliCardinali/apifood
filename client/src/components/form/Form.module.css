@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.formRegister {
+  width: 400px;
+  background: rgba(134, 63, 248, 0.5);
+  padding: 30px;
+  margin: auto;
+  margin-top: 30px;
+  border-radius: 4px;
+  font-family: "calibri";
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+  background-image: linear-gradient(
+    -225deg,
+    #5271c4 0%,
+    #b19fff 48%,
+    #eca1fe 100%
+  );
+}
+
+.formRegister h4 {
+  font-size: 22px;
+  margin-bottom: 100px;
+}
+
+.controls {
+  width: 100%;
+  background: #8e62f7;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 5px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-family: "calibri";
+  font-size: 18px;
+  color: white;
+}
+
+.formRegister p {
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 40px;
+}
+
+.formRegister a {
+  color: white;
+  text-decoration: none;
+}
+
+.formRegister a:hover {
+  color: white;
+  text-decoration: underline;
+  margin-bottom: 0.1em;
+}
+
+.formRegister .botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+.controls:hover {
+  background: #8e43f1;
+  box-shadow: 0 0 10px #8e43f1, 0 0 40px #8e43f1, 0 0 80px #8e43f1;
+}
+
+.select {
+  width: 100%;
+  background: #8e62f7;
+}
+.cards {
+  width: 30%;
+}
+
+.body {
+  width: 80%;
+}
+
+.typ {
+  display: inline-flex;
+  width: 80%;
+  background-color: rgba(240, 216, 112, 0.5);
+  align-items: center;
+  height: 100px;
+  border-radius: 20px;
+  margin-top: 0.2em;
+}
+
+.but {
+  width: 70px;
+  background-color: #8e43f1;
+}
+
+.py {
+  display: inline-flex;
+  width: 80px;
+}
+
+.ty {
+  margin-right: 0.3em;
+  background-color: rgba(112, 199, 240, 0.5);
+  border-radius: 5px;
+  margin-left: 0.2em;
+}

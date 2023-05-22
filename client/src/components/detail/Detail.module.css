@@ -1,0 +1,89 @@
+.score {
+  display: inline-flex;
+}
+
+.scores {
+  width: 250px;
+}
+
+.h3score {
+  width: 250px;
+}
+
+.summarysteps {
+  width: 45%;
+  background-color: rgba(185, 218, 245, 0.8);
+  margin-right: 1em;
+  justify-content: baseline;
+  border-radius: 20px;
+  margin-bottom: 1em;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
+}
+
+.summaries {
+  display: inline-flex;
+  align-content: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+.wrap {
+  background-color: rgba(240, 216, 112, 0.5);
+  width: 95%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin-left: 2em;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+}
+
+.img {
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  height: 300px;
+  width: 400px;
+  margin-left: 1em;
+}
+
+.ima {
+  width: 50%;
+  height: 315px;
+}
+
+.name {
+  height: 60px;
+  background-color: rgba(93, 45, 250, 0.8);
+  margin-bottom: 0.5em;
+  background-image: linear-gradient(to top, #ebc0fd 0%, #d9ded8 100%);
+}
+.card {
+  display: inline-flex;
+  width: 80%;
+}
+
+.dietss {
+  width: 25%;
+  height: 300px;
+  margin-left: 1em;
+  background-color: rgba(185, 218, 245, 0.8);
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  background-image: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
+}
+
+.typess {
+  width: 25%;
+  height: 300px;
+  margin-left: 1em;
+  background-color: rgba(185, 218, 245, 0.8);
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  background-image: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
+}
+
+.par {
+  color: rgb(18, 29, 185);
+}
