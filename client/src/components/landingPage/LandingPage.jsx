@@ -5,7 +5,7 @@ import styles from "../landingPage/LandingPage.module.css";
 
 export default function LandingPage() {
   return (
-    <div className={styles.containerLanding}>
+    <div>
       <video className={styles.video} autoPlay loop muted>
         <source src={video} type="video/mp4"></source>
       </video>

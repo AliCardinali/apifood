@@ -49,22 +49,17 @@ body {
   margin: 0;
 }
 
-.containerLanding {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgb(232, 95, 10);
-  z-index: -5;
-}
-
 .video {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
-  z-index: 1;
+  z-index: -1;
   width: 90%;
   height: 90%;
   object-fit: cover;
+  width: 100vw;
+  height: 100vh;
 }
 
 .titleCompuesto {
@@ -87,8 +82,10 @@ body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   font-size: 2rem;
-  color: aliceblue;
+  color: rgb(232, 95, 10);
+  text-shadow: 5px 5px 5px rgb(3, 71, 3);
 }
+
 .btnlanding {
   font-size: 2rem;
   padding: 0.5rem 2rem;
