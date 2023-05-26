@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./NavBar.css";
+import styles from "../navBar/NavBar.module.css";
 
 function NavBar() {
   return (
-    <div className="navigation">
-      <div className="contimg"></div>
+    <div className={styles.navigation}>
+      <div className={styles.contimg}></div>
       <div>
         <Link to="/home">
-          <button className="btn-neon">Home</button>
+          <button className={styles.btnNeon}>Home</button>
         </Link>
       </div>
     </div>

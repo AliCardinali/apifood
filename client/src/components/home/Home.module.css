@@ -51,7 +51,7 @@
   width: 150px;
 }
 
-.pag-body {
+.pagBody {
   width: 900px;
 }
 
@@ -107,7 +107,7 @@ select::-ms-expand {
   color: #9fe916;
 }
 
-.btn-neon {
+.btnNeon {
   position: relative;
   display: inline-block;
   padding: 15px 30px;
@@ -122,11 +122,11 @@ select::-ms-expand {
   background-color: #5439eb;
   background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
 }
-.btn-neon:hover {
+.btnNeon:hover {
   background: #09cee0;
   box-shadow: 0 0 10px linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
 }
-.btn-neon span {
+.btnNeon span {
   position: absolute;
   display: block;
 }
@@ -137,7 +137,7 @@ select::-ms-expand {
   height: 2px;
   background: linear-gradient(90deg, transparent, #43f1e8);
 }
-.btn-neon:hover #span1 {
+.btnNeon:hover #span1 {
   left: 100%;
 }
 #span3 {
@@ -147,7 +147,7 @@ select::-ms-expand {
   height: 2px;
   background: linear-gradient(270deg, transparent, #43f1e8);
 }
-.btn-neon:hover #span3 {
+.btnNeon:hover #span3 {
   right: 100%;
 
   transition-delay: 0.5s;
@@ -159,7 +159,7 @@ select::-ms-expand {
   height: 100%;
   background: linear-gradient(180deg, transparent, #43f1e8);
 }
-.btn-neon:hover #span2 {
+.btnNeon:hover #span2 {
   top: 100%;
 
   transition-delay: 0.25s;
@@ -171,7 +171,7 @@ select::-ms-expand {
   height: 100%;
   background: linear-gradient(360deg, transparent, #43f1e8);
 }
-.btn-neon:hover #span4 {
+.btnNeon:hover #span4 {
   bottom: 100%;
 
   transition-delay: 0.75s;

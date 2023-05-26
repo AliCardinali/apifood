@@ -29,9 +29,8 @@ const get_Api = async () => {
 
   return infoApi;
 };
-
 const get_DataBase = async () => {
-  return await Recipe.findAll({
+  const data = await Recipe.findAll({
     include: {
       model: Diets,
       attributes: ["name"],
@@ -40,6 +39,8 @@ const get_DataBase = async () => {
       },
     },
   });
+  console.log(data);
+  return data;
 };
 
 const get_ApiID = async (id) => {
@@ -47,23 +48,21 @@ const get_ApiID = async (id) => {
   //   `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
   // );
   const apiId = await axios.get(
-    `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5/:id=${id}`
+    `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
   );
-  const detail = apiId.data;
+  const detail = apiId.data.results.find((el) => el.id === Number(id));
+
+  const { title, summary, healthScore, image, analyzedInstructions, diets } =
+    detail;
 
   let recipeDetail = {
-    id: detail.id,
-    title: detail.title,
-    summary: detail.summary,
-    healthScore: detail.healthScore,
-    image: detail.image,
-    steps: detail.analyzedInstructions[0]?.steps.map((s) => {
-      return {
-        number: s.number,
-        step: s.step,
-      };
-    }),
-    diets: detail.diets,
+    id,
+    title,
+    summary,
+    healthScore,
+    image,
+    // steps: analyzedInstructions[0].steps.map((s) => s.step),
+    diets,
   };
 
   return recipeDetail;

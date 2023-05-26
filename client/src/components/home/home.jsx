@@ -13,7 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import { Card } from "../card/Card";
 import { SearchBar } from "../searchBar/SearchBar.jsx";
-import "./Home.css";
+import styles from "../home/Home.module.css";
 import Pagination from "../pagination/Pagination.jsx";
 
 export default function Home() {
@@ -80,8 +80,8 @@ export default function Home() {
       <div>
         <SearchBar />
       </div>
-      <div className="option">
-        <div className="select">
+      <div className={styles.option}>
+        <div className={styles.select}>
           <select
             defaultValue="Filter by Order"
             onChange={(evt) => handleFilterByOrder(evt)}
@@ -95,7 +95,7 @@ export default function Home() {
             </option>
           </select>
         </div>
-        <div className="select">
+        <div className={styles.select}>
           <select
             defaultValue="Filter by Source"
             onChange={(evt) => handleFilterBySource(evt)}
@@ -109,7 +109,7 @@ export default function Home() {
             </option>
           </select>
         </div>
-        <div className="select">
+        <div className={styles.select}>
           <select
             defaultValue="Filter by type"
             onChange={(evt) => handleFilterByDiets(evt)}
@@ -122,7 +122,7 @@ export default function Home() {
             ))}
           </select>
         </div>
-        <div className="select">
+        <div className={styles.select}>
           <select
             defaultValue="Order by score"
             onChange={(evt) => handleOrderByScore(evt)}
@@ -134,8 +134,8 @@ export default function Home() {
             </option>
           </select>
         </div>
-        <div className="resetDefault">
-          <button className="btn-neon" onClick={(e) => handleDefault(e)}>
+        <div className={styles.resetDefault}>
+          <button className={styles.btnNeon} onClick={(e) => handleDefault(e)}>
             Reset Default
           </button>
           <span id="span1"></span>
@@ -143,9 +143,9 @@ export default function Home() {
           <span id="span3"></span>
           <span id="span4"></span>
         </div>
-        <div className="link">
+        <div className={styles.link}>
           <Link to="/recipes">
-            <button className="btn-neon"> New Recipe</button>
+            <button className={styles.btnNeon}> New Recipe</button>
           </Link>
           <span id="span1"></span>
           <span id="span2"></span>
@@ -153,18 +153,17 @@ export default function Home() {
           <span id="span4"></span>
         </div>
       </div>
-      <div className="pag-body">
+      <div className={styles.pagBody}>
         {recipesAll.length > 0 ? (
-          <div className="body">
+          <div className={styles.body}>
             {currentRecipes?.map((recipe, index) => {
               return (
-                <div className="cards" key={index}>
+                <div className={styles.cards} key={index}>
                   <Card
                     key={recipe.id}
                     id={recipe.idApi ? recipe.idApi : recipe.id}
                     title={recipe.title}
                     image={recipe.image}
-                    // types={recipe.types}
                     diets={recipe.diets}
                   />
                 </div>
@@ -176,7 +175,7 @@ export default function Home() {
         )}
       </div>
 
-      <div className="pagination">
+      <div className={styles.pagination}>
         <Pagination
           recipesPage={recipesPage}
           recipesAll={recipesAll.length}

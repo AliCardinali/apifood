@@ -18,6 +18,7 @@ const inicialState = {
   recipesAll: [],
   types: [],
   detail: [],
+  addReset: [],
 };
 const rootReducer = (state = inicialState, action) => {
   switch (action.type) {
@@ -54,6 +55,7 @@ const rootReducer = (state = inicialState, action) => {
     case POST_RECIPES:
       return {
         ...state,
+        addReset: action.payload,
       };
 
     case GET_TYPES:

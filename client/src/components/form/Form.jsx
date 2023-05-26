@@ -6,23 +6,15 @@ import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../navBar/NavBar.jsx";
 import styles from "../form/Form.module.css";
 
-function validate(input) {
-  let errors = {};
-  if (!input.name) {
-    errors.name = "Name is require";
-  }
-  return errors;
-}
-
 export default function Form() {
   const dispatch = useDispatch();
   const history = useHistory();
   const type = useSelector((state) => state.types);
   const allState = useSelector((state) => state.recipesAll);
   const [error, setError] = useState({});
-
+  console.log(type);
   const [input, setInput] = useState({
-    name: "",
+    title: "",
     summary: "",
     score: 0,
     healthScore: 0,
@@ -36,26 +28,11 @@ export default function Form() {
   }, []);
 
   function handleChange(evt) {
+    const { name, value } = evt.target;
     setInput({
       ...input,
-      [evt.target.name]: evt.target.value,
+      [name]: value,
     });
-    setError(
-      validate({
-        ...input,
-        [evt.target.name]: evt.target.value,
-      })
-    );
-    if (
-      allState.find(
-        (recipe) => recipe.name.toLowerCase() === evt.target.value.toLowerCase()
-      )
-    ) {
-      setError({
-        ...input,
-        [evt.target.name]: "Recipe is found",
-      });
-    }
     console.log(input);
   }
 
@@ -93,9 +70,9 @@ export default function Form() {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    await dispatch(postRecipes(input));
+    dispatch(postRecipes(input));
     setInput({
-      name: "",
+      title: "",
       summary: "",
       score: 0,
       healthScore: 0,
@@ -104,9 +81,6 @@ export default function Form() {
       steps: "",
       diets: [],
     });
-    const result = await dispatch(getDatabase());
-    console.log(result);
-    history.push("/home");
   }
 
   return (
@@ -123,11 +97,11 @@ export default function Form() {
           <input
             className={styles.controls}
             type="text"
-            value={input.name}
-            name="name"
+            value={input.title}
+            name="title"
             onChange={(evt) => handleChange(evt)}
           />
-          {error.name && <p className="error">{error.name}</p>}
+          {error.title && <p className="error">{error.title}</p>}
         </div>
 
         <div>
@@ -140,7 +114,6 @@ export default function Form() {
             onChange={(evt) => handleChange(evt)}
           />
         </div>
-
         <div>
           <label>Score</label>
           <input
@@ -151,7 +124,6 @@ export default function Form() {
             onChange={(evt) => handleNumber(evt)}
           />
         </div>
-
         <div>
           <label>Heath score</label>
           <input
@@ -162,7 +134,6 @@ export default function Form() {
             onChange={(evt) => handleNumber(evt)}
           />
         </div>
-
         <div>
           <label>Image</label>
           <input
@@ -173,7 +144,6 @@ export default function Form() {
             onChange={(evt) => handleChange(evt)}
           />
         </div>
-
         <div>
           <label>Steps</label>
           <input
@@ -184,7 +154,6 @@ export default function Form() {
             onChange={(evt) => handleChange(evt)}
           />
         </div>
-
         <div>
           <select
             className={styles.select}

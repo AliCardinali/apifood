@@ -3,15 +3,16 @@ import { useDispatch } from "react-redux";
 import { searchId } from "../../redux/action";
 import { useHistory } from "react-router-dom";
 import styles from "./Card.module.css";
+import { Link } from "react-router-dom";
 
 function Card({ id, title, image, diets }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  async function handleId(id) {
-    await dispatch(searchId(id));
-    history.push("/detail");
-  }
+  // async function handleId(id) {
+  //   await dispatch(searchId(id));
+  //   history.push(`/detail/${id}`);
+  // }
 
   return (
     <div className={styles.container}>
@@ -30,11 +31,14 @@ function Card({ id, title, image, diets }) {
             ))}
           </div>
         </div>
-        <div className={styles.buton}>
+        {/* <div className={styles.buton}>
           <button className={styles.neonutton} onClick={() => handleId(id)}>
             Details
           </button>
-        </div>
+        </div> */}
+        <Link to={`/detail/${id}`}>
+          <button>More info</button>
+        </Link>
       </div>
     </div>
   );

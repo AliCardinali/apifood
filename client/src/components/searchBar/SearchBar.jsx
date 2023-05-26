@@ -1,5 +1,5 @@
 import React from "react";
-import "./SearchBar.css";
+import styles from "../searchBar/SearchBar.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipesName, searchBarName } from "../../redux/action";
@@ -31,7 +31,7 @@ function SearchBar() {
         onChange={(evt) => handleInput(evt)}
       />
       <button
-        className="searchButton"
+        className={styles.searchButton}
         type="submit"
         onClick={(evt) => handleSubmit(evt)}
       >

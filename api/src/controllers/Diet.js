@@ -36,15 +36,14 @@ const getTypesDiets = async () => {
       eachDiets.push(die[i][j]);
     }
   }
-  const allDiets = await Diets.findAll();
 
   const dataArr = new Set(eachDiets);
 
   let result = [...dataArr];
 
   await postDiet(result);
-
-  return result;
+  const allDiets = await Diets.findAll();
+  return allDiets;
 };
 
 const postDiet = async (dataArr) => {
