@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { searchId } from "../../redux/action";
 import { useHistory } from "react-router-dom";
-import styles from "./Card.module.css";
+import styles from "./card.module.css";
 import { Link } from "react-router-dom";
 
 function Card({ id, title, image, diets }) {

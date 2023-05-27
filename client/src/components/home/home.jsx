@@ -11,7 +11,7 @@ import {
   orderByScore,
 } from "../../redux/action";
 import { Link } from "react-router-dom";
-import { Card } from "../card/Card";
+import { Card } from "../card/card";
 import { SearchBar } from "../searchBar/SearchBar.jsx";
 import styles from "../home/Home.module.css";
 import Pagination from "../pagination/Pagination.jsx";
