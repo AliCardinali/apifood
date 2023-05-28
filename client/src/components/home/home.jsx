@@ -11,7 +11,7 @@ import {
   orderByScore,
 } from "../../redux/action";
 import { Link } from "react-router-dom";
-import { Card } from "../card/card";
+import { Card } from "../card/Card";
 import { SearchBar } from "../searchBar/SearchBar.jsx";
 import styles from "../home/Home.module.css";
 import Pagination from "../pagination/Pagination.jsx";
@@ -156,7 +156,7 @@ export default function Home() {
       <div className={styles.pagBody}>
         {recipesAll.length > 0 ? (
           <div className={styles.body}>
-            {currentRecipes?.map((recipe, index) => {
+            {currentRecipes.map((recipe, index) => {
               return (
                 <div className={styles.cards} key={index}>
                   <Card

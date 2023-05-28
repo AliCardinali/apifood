@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import LandingPage from "./components/landingPage/LandingPage";
-import Home from "../src/components/home/home";
+import Home from "./components/home/Home.jsx";
 import Form from "./components/form/Form.jsx";
 import Detail from "./components/detail/Detail.jsx";
 import NotFound from "./components/error404/Error404";

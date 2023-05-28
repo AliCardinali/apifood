@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { searchId } from "../../redux/action";
 import { useHistory } from "react-router-dom";
-import styles from "./card.module.css";
+import styles from "./Card.module.css";
 import { Link } from "react-router-dom";
 
 function Card({ id, title, image, diets }) {
@@ -26,7 +26,7 @@ function Card({ id, title, image, diets }) {
         <div className={styles.foot}>
           <div className={styles.diets}>
             <h4>Diets Types</h4>
-            {diets?.map((diet, index) => (
+            {diets.length > 0 && diets.map((diet, index) => (
               <p key={index}>{diet}</p>
             ))}
           </div>

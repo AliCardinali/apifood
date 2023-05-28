@@ -39,8 +39,24 @@ const get_DataBase = async () => {
       },
     },
   });
-  console.log(data);
-  return data;
+
+  const result = data.map(el => {
+    const dietas = el.Diets.map(elm => elm.name)
+    console.log(dietas);
+    return {
+      id: el.id,
+      title: el.title,
+      summary: el.summary,
+      healthScore: el.healthScore,
+      image: el.image,
+      steps: el.steps,
+      diets: dietas
+    }
+  })
+
+
+  // console.log(data, "esto es la base de datos");
+  return result;
 };
 
 const get_ApiID = async (id) => {
@@ -61,7 +77,7 @@ const get_ApiID = async (id) => {
     summary,
     healthScore,
     image,
-    // steps: analyzedInstructions[0].steps.map((s) => s.step),
+    steps: analyzedInstructions.length > 0 && analyzedInstructions[0].steps.map((s) => s.step),
     diets,
   };
 

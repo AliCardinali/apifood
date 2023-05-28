@@ -31,7 +31,7 @@ router.get("/", async (req, res, next) => {
             summary: r.summary,
             healthScore: r.healthScore,
             steps: r.steps,
-            diets: r.diets ? r.diets : r.diets.map((r) => r.name),
+            diets: r.diets && r.diets /* r.diets.map((r) => r.name) */,
           };
         });
         return res.status(200).send(recipes);
@@ -47,7 +47,7 @@ router.get("/", async (req, res, next) => {
           summary: r.summary,
           healthScore: r.healthScore,
           steps: r.steps,
-          diets: r.diets ? r.diets : r.diets.map((r) => r.name),
+          diets: r.diets.length > 0 &&  r.diets /* : r.Diets.map((r) => r.name) */,
         };
       });
       return res.status(200).send(recipes);
@@ -89,33 +89,18 @@ router.post("/", async (req, res, next) => {
       steps,
     });
 
-    const dietNames = Array.isArray(diets) ? diets : [diets];
-    const dietDB = await Diets.findAll({
+    const dietas = await Diets.findAll({
       where: {
-        name: {
-          [Op.in]: dietNames,
-        },
-      },
-    });
-    await newRecipe.addDiets(dietDB);
-
-    for (const dietName of dietNames) {
-      const validate = types.includes(dietName);
-      if (!validate) {
-        const existingDiet = await Diets.findOne({
-          where: {
-            name: dietName,
-          },
-        });
-        if (!existingDiet) {
-          const newDiet = await Diets.create({ name: dietName });
-          await newRecipe.addDiets(newDiet);
-          types.push(dietName);
-        }
+        name:{[Op.in]: diets},
       }
-    }
+    })
 
-    res.status(200).send(newRecipe);
+    const respuesta = dietas.map(el => el.id)
+    console.log(respuesta, "esto es respuesta");
+    await newRecipe.addDiets(respuesta);
+
+    return res.status(200).send(newRecipe);
+
   } catch (err) {
     next(err);
   }
