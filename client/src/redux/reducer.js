@@ -173,7 +173,7 @@ const rootReducer = (state = inicialState, action) => {
     case FILTER_BY_SEARCHBAR:
       const filtSearch = state.recipesAll;
       const filtOnState = filtSearch.filter((recipe) => {
-        let name = recipe.name.toLowerCase();
+        let name = recipe.title.toLowerCase();
         if (name.includes(action.payload)) return recipe;
       });
       return {

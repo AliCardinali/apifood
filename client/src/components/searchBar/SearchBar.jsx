@@ -2,17 +2,17 @@ import React from "react";
 import styles from "../searchBar/SearchBar.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipesName, searchBarName } from "../../redux/action";
+import { getRecipesName, getRecipesAll } from "../../redux/action";
 
 function SearchBar() {
-  const recipesAll = useSelector((state) => state.recipes);
+  const recipesAll = useSelector((state) => state.recipesAll);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
   function handleInput(evt) {
     evt.preventDefault();
     setName(evt.target.value);
-    dispatch(searchBarName(evt.target.value));
+    dispatch(getRecipesAll(evt.target.value));
   }
 
   function handleSubmit(evt) {

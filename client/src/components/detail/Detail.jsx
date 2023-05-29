@@ -50,8 +50,8 @@ function Detail(props) {
             <p key={index}>{diet}</p>
           ))}
         </div>
-        {/* <h4>Dish Types</h4> */}
-        <img src={detail.image} alt={detail.title} />
+
+        <img className={styles.image} src={detail.image} alt={detail.title} />
       </div>
       <div className={styles.score}>
         <div className={styles.scores}>

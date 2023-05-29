@@ -48,9 +48,12 @@
   margin-left: 1em;
 }
 
-.ima {
+.image {
   width: 50%;
-  height: 315px;
+  height: 300px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 
 .name {

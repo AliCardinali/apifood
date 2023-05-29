@@ -13,7 +13,7 @@ import {
 import { Link } from "react-router-dom";
 import { Card } from "../card/Card";
 import { SearchBar } from "../searchBar/SearchBar.jsx";
-import styles from "../home/Home.module.css";
+import styles from "./Home.module.css";
 import Pagination from "../pagination/Pagination.jsx";
 
 export default function Home() {
@@ -88,10 +88,10 @@ export default function Home() {
           >
             <option disabled>Filter by Order</option>
             <option key="up" value="up">
-              Upward
+              A-Z
             </option>
             <option key="down" value="down">
-              Descendant
+              Z-A
             </option>
           </select>
         </div>
@@ -111,15 +111,24 @@ export default function Home() {
         </div>
         <div className={styles.select}>
           <select
-            defaultValue="Filter by type"
+            defaultValue={"all"}
+            name="diets"
             onChange={(evt) => handleFilterByDiets(evt)}
           >
-            <option disabled>Filter by type</option>
-            {typesAll?.map((type) => (
-              <option key={type.title} value={type.title}>
-                {type.title}
-              </option>
-            ))}
+            <option value="all">Filter by type of diet</option>
+            <option value="gluten free">Gluten Free</option>
+            <option value="ketogenic">Ketogenic</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="lacto vegetarian">Lacto Vegetarian</option>
+            <option value="ovo vegetarian">Ovo Vegetarian</option>
+            <option value="lacto ovo vegetarian">Lacto Ovo Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="pescatarian">Pescatarian</option>
+            <option value="paleolithic">Paleolithic</option>
+            <option value="primal">Primal</option>
+            <option value="fodmap friendly">Fodmap Friendly</option>
+            <option value="whole 30">Whole30</option>
+            <option value="dairy free">Dairy Free</option>
           </select>
         </div>
         <div className={styles.select}>
@@ -155,7 +164,7 @@ export default function Home() {
       </div>
       <div className={styles.pagBody}>
         {recipesAll.length > 0 ? (
-          <div className={styles.body}>
+          <div className={styles.containerAll}>
             {currentRecipes.map((recipe, index) => {
               return (
                 <div className={styles.cards} key={index}>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Pagination.module.css";
+import styles from "./Pagination.module.css";
 
 function Pagination({ recipesPage, recipesAll, Page }) {
   const pageNumbers = [];
@@ -11,7 +11,7 @@ function Pagination({ recipesPage, recipesAll, Page }) {
     <div>
       {pageNumbers.map((number) => (
         <button
-          className="pagedButton"
+          className={styles.pagedButton}
           key={number}
           onClick={() => Page(number)}
         >

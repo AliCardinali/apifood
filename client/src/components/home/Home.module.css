@@ -14,7 +14,7 @@
   background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
 }
 
-.body {
+.containerAll {
   height: 600px;
   top: 150px;
   left: 300px;

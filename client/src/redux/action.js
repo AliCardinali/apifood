@@ -33,6 +33,7 @@ export function getRecipesName(name) {
   return async function (dispatch) {
     try {
       const recipes = await axios.get(`${URL}/recipes?name=${name}`);
+      console.log(recipes.data);
       return dispatch({
         type: GET_RECIPES_NAME,
         payload: recipes.data,
@@ -105,7 +106,7 @@ export function getDatabase() {
 export function getFilterByDiets(payload) {
   return {
     type: FILTER_BY_DIETS,
-    payload: payload,
+    payload,
   };
 }
 

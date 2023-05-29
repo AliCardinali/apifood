@@ -26,9 +26,8 @@ function Card({ id, title, image, diets }) {
         <div className={styles.foot}>
           <div className={styles.diets}>
             <h4>Diets Types</h4>
-            {diets.length > 0 && diets.map((diet, index) => (
-              <p key={index}>{diet}</p>
-            ))}
+            {diets.length > 0 &&
+              diets.map((diet, index) => <p key={index}>{diet}</p>)}
           </div>
         </div>
         {/* <div className={styles.buton}>
@@ -37,7 +36,7 @@ function Card({ id, title, image, diets }) {
           </button>
         </div> */}
         <Link to={`/detail/${id}`}>
-          <button>More info</button>
+          <button className={styles.buttonMore}>More info</button>
         </Link>
       </div>
     </div>
