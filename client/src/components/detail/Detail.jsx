@@ -55,7 +55,7 @@ function Detail(props) {
       </div>
       <div className={styles.score}>
         <div className={styles.scores}>
-          <h3 className={styles.h3score}>Score..:{detail.score}</h3>
+          {/* <h3 className={styles.h3score}>Score..:{detail.score}</h3> */}
         </div>
         <div className={styles.scores}>
           <h3 className={styles.h3score}>

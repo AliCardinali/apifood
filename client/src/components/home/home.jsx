@@ -25,7 +25,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getTypes());
-  }, []);
+  }, [getTypes]);
   const [order, setOrder] = useState("");
 
   const [currenPage, setCurrentPage] = useState(1);
