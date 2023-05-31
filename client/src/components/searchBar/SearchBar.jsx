@@ -1,18 +1,19 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import styles from "../searchBar/SearchBar.module.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipesName, getRecipesAll } from "../../redux/action";
+import img from "../assets/food-logo.png";
 
 function SearchBar() {
-  const recipesAll = useSelector((state) => state.recipesAll);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
   function handleInput(evt) {
     evt.preventDefault();
     setName(evt.target.value);
-    dispatch(getRecipesAll(evt.target.value));
+    // dispatch(getRecipesAll(evt.target.value));
   }
 
   function handleSubmit(evt) {
@@ -25,6 +26,9 @@ function SearchBar() {
 
   return (
     <div>
+      <div>
+        <img className={styles.imgLogo} src={img} alt="Img Not Found"></img>
+      </div>
       <input
         type="text"
         placeholder="Search Name ..."

@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import {
   GET_RECIPES,
   GET_RECIPES_NAME,
@@ -38,11 +39,12 @@ const rootReducer = (state = inicialState, action) => {
           addRecipe.push(recipe);
           console.log(addRecipe);
         }
+        return addRecipe;
       });
       return {
         ...state,
         recipes: action.payload,
-        recipesAll: addRecipe,
+        recipesAll: newRecipeAdd,
       };
 
     case GET_RECIPES_ID:
@@ -65,34 +67,19 @@ const rootReducer = (state = inicialState, action) => {
       };
 
     case FILTER_BY_DIETS:
-      const recipes_All = state.recipesAll;
-
-      const filtByDiets =
-        action.payload === "Filter by type"
-          ? state.recipesAll
-          : recipes_All.filter((recipe) => {
-              if (recipe.diets.length > 0) {
+      const all = state.recipesAll;
+      const getFilterByDiets =
+        action.payload === "all"
+          ? all
+          : all.filter((recipe) => {
+              if (recipe.diets.length > 0)
                 if (recipe.diets.find((element) => element === action.payload))
                   return recipe;
-              }
-
-              if (
-                action.payload === "vegetarian" &&
-                recipe.hasOwnProperty("vegetarian") &&
-                recipe.vegetarian === true
-              )
-                return recipe;
-
-              if (
-                action.payload === "dairyFree" &&
-                recipe.hasOwnProperty("dairyFree") &&
-                recipe.dairyFree === true
-              )
-                return recipe;
             });
+
       return {
         ...state,
-        recipes: filtByDiets,
+        recipes: getFilterByDiets,
       };
 
     case SET_DEFAULT_CARD:

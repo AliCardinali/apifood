@@ -1,3 +1,8 @@
+body {
+  background: url("../assets/fondo1.jpg") repeat center fixed;
+  background-size: cover;
+}
+
 .cards {
   display: inline-flex;
   width: 200px;

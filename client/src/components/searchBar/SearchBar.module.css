@@ -28,3 +28,12 @@ input[type="text"]:focus {
   border-color: #09cee0;
   box-shadow: 0 0 10px #09cee0, 0 0 40px #09cee0, 0 0 80px #09cee0;
 }
+.imgLogo {
+  height: 50px;
+  margin-right: 30px;
+  margin-left: 50px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
