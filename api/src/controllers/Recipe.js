@@ -1,14 +1,14 @@
 const axios = require("axios");
 const { Diets, Recipe } = require("../db");
-const { API_KEY, URL_SPOONACULAR } = process.env;
+// const { API_KEY, URL_SPOONACULAR } = process.env;
+require("dotenv").config();
+const { DB_URL } = process.env;
 
 const get_Api = async () => {
   // const response = await axios.get(
   //   `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
   // );
-  const response = await axios.get(
-    ` https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
-  );
+  const response = await axios.get(DB_URL);
   const infoApi = response.data.results.map((r) => {
     return {
       id: r.id,
@@ -40,8 +40,8 @@ const get_DataBase = async () => {
     },
   });
 
-  const result = data.map(el => {
-    const dietas = el.Diets.map(elm => elm.name)
+  const result = data.map((el) => {
+    const dietas = el.Diets.map((elm) => elm.name);
     console.log(dietas);
     return {
       id: el.id,
@@ -50,10 +50,9 @@ const get_DataBase = async () => {
       healthScore: el.healthScore,
       image: el.image,
       steps: el.steps,
-      diets: dietas
-    }
-  })
-
+      diets: dietas,
+    };
+  });
 
   // console.log(data, "esto es la base de datos");
   return result;
@@ -63,9 +62,7 @@ const get_ApiID = async (id) => {
   // const apiId = await axios.get(
   //   `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
   // );
-  const apiId = await axios.get(
-    `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
-  );
+  const apiId = await axios.get(DB_URL);
   const detail = apiId.data.results.find((el) => el.id === Number(id));
 
   const { title, summary, healthScore, image, analyzedInstructions, diets } =
@@ -77,7 +74,9 @@ const get_ApiID = async (id) => {
     summary,
     healthScore,
     image,
-    steps: analyzedInstructions.length > 0 && analyzedInstructions[0].steps.map((s) => s.step),
+    steps:
+      analyzedInstructions.length > 0 &&
+      analyzedInstructions[0].steps.map((s) => s.step),
     diets,
   };
 
