@@ -1,14 +1,14 @@
 const axios = require("axios");
 const { Diets, Recipe } = require("../db");
-// const { API_KEY, URL_SPOONACULAR } = process.env;
-require("dotenv").config();
-const { DB_URL } = process.env;
+const { API_KEY, URL_SPOONACULAR } = process.env;
 
 const get_Api = async () => {
   // const response = await axios.get(
   //   `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
   // );
-  const response = await axios.get(DB_URL);
+  const response = await axios.get(
+    ` https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
+  );
   const infoApi = response.data.results.map((r) => {
     return {
       id: r.id,
@@ -62,7 +62,9 @@ const get_ApiID = async (id) => {
   // const apiId = await axios.get(
   //   `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
   // );
-  const apiId = await axios.get(DB_URL);
+  const apiId = await axios.get(
+    `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
+  );
   const detail = apiId.data.results.find((el) => el.id === Number(id));
 
   const { title, summary, healthScore, image, analyzedInstructions, diets } =

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from "react";
 import { getTypes, postRecipes, getDatabase } from "../../redux/action";
 import { useState, useEffect } from "react";
@@ -5,13 +6,22 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import NavBar from "../navBar/NavBar.jsx";
 import styles from "../form/Form.module.css";
+import { validate } from "../../validation";
 
 export default function Form() {
   const dispatch = useDispatch();
   const history = useHistory();
   const type = useSelector((state) => state.types);
   const allState = useSelector((state) => state.recipesAll);
-  const [error, setError] = useState({});
+  const [errors, setErrors] = useState({
+    title: "",
+    summary: "",
+    score: 0,
+    healthScore: 0,
+    image: "",
+    steps: "",
+    diets: [],
+  });
   console.log(type);
   const [input, setInput] = useState({
     title: "",
@@ -27,14 +37,17 @@ export default function Form() {
     dispatch(getTypes());
   }, []);
 
-  function handleChange(evt) {
-    const { name, value } = evt.target;
-    setInput({
-      ...input,
-      [name]: value,
+  let handleChange = (e) => {
+    e.preventDefault();
+    setInput((prevInput) => {
+      const newInput = {
+        ...prevInput,
+        [e.target.name]: e.target.value,
+      };
+      setErrors(validate({ newInput }));
+      return newInput;
     });
-    console.log(input);
-  }
+  };
 
   function handleSelect(evt) {
     if (!input.diets.includes(evt.target.value)) {
@@ -95,13 +108,14 @@ export default function Form() {
         <div>
           <label>Name</label>
           <input
-            className={styles.controls}
+            // className={errors.name && "danger"}
+            placeholder="Ej: Strawberries with cream"
             type="text"
-            value={input.title}
-            name="title"
-            onChange={(evt) => handleChange(evt)}
+            name="name"
+            onChange={(e) => handleChange(e)}
+            value={input.name}
           />
-          {error.title && <p className="error">{error.title}</p>}
+          {!errors.name ? null : <p className={styles.danger}>{errors.name}</p>}
         </div>
 
         <div>
@@ -168,7 +182,7 @@ export default function Form() {
             ))}
           </select>
         </div>
-        {input.name !== "" && !error.name ? (
+        {input.name !== "" && !errors.name ? (
           <div>
             <button className={styles.btnNeon} type="submit">
               Recipes Create

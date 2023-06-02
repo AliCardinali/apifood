@@ -6,37 +6,24 @@ import styles from "../detail/Detail.module.css";
 
 import NavBar from "../navBar/NavBar.jsx";
 
-// function validate(id) {
-//   if (id.length <= 6 && id.length > 0) {
-//     for (let i = 0; i < id.length; i++) {
-//       if (!Number.isInteger(id[i] * 1)) return false;
-//     }
-//   } else if (id.length < 36) {
-//     return false;
-//   }
-//   return true;
-// }
-
-function Detail(props) {
+function Detail() {
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.detail);
 
-  console.log(detail);
+  // console.log(detail);
   const { id } = useParams();
 
   useEffect(() => {
     dispatch(getRecipesId(id));
   }, [dispatch, id]);
-
+  // console.log(detail);
   return (
     <div className={styles.container}>
       <div>
         <NavBar></NavBar>
       </div>
       <div>
-        <p className={styles.par}>
-          supports numbers less than 1000000 or 36 characters
-        </p>
+        <p className={styles.par}></p>
       </div>
       {detail.title ? (
         <h1 className={styles.title}>{detail.title}</h1>
@@ -54,9 +41,9 @@ function Detail(props) {
         <img className={styles.image} src={detail.image} alt={detail.title} />
       </div>
       <div className={styles.score}>
-        <div className={styles.scores}>
-          {/* <h3 className={styles.h3score}>Score..:{detail.score}</h3> */}
-        </div>
+        {/* <div className={styles.scores}>
+          <h3 className={styles.h3score}>Score..:{detail.score}</h3>
+        </div> */}
         <div className={styles.scores}>
           <h3 className={styles.h3score}>
             Health score..:{detail.healthScore}

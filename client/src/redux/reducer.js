@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import {
   GET_RECIPES,
   GET_RECIPES_NAME,
@@ -103,28 +102,21 @@ const rootReducer = (state = inicialState, action) => {
       };
 
     case FILTER_BY_RESOURCES:
-      const recipesToFilter = state.recipesAll;
-      const typeFilter =
+      const { id } = action;
+      //const isNumeric = !isNaN(id);
+      const allRecipes1 = state.recipesAll;
+      const statusFiltered2 =
         action.payload === "Filter by Source"
-          ? state.recipesAll
-          : recipesToFilter?.filter((recipe) => {
-              if (
-                action.payload === "created" &&
-                !recipe.hasOwnProperty("idApi")
-              )
-                return recipe;
-
-              if (
-                action.payload === "apiobtn" &&
-                recipe.hasOwnProperty("idApi")
-              )
-                return recipe;
-            });
+          ? allRecipes1.filter((el) => typeof el.id === "string")
+          : allRecipes1.filter((el) => typeof el.id !== "number");
+      //console.log(statusFiltered2);
       return {
         ...state,
-        recipes: typeFilter,
+        recipes:
+          action.payload === "api"
+            ? allRecipes1.filter((el) => typeof el.id === "number")
+            : statusFiltered2,
       };
-
     case FILTER_BY_ORDER:
       const recypesByOrder =
         action.payload === "up"

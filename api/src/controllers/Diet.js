@@ -1,9 +1,7 @@
 const { Diets } = require("../db");
 const axios = require("axios");
 // const postDiet = require("../handlers/handlerPostDiet");
-// const { API_KEY, URL_SPOONACULAR } = process.env;
-require("dotenv").config();
-const { DB_URL } = process.env;
+const { API_KEY, URL_SPOONACULAR } = process.env;
 
 const getTypesDiets = async () => {
   /** obtener en un array todos los tipos de dietas existentes,
@@ -14,7 +12,9 @@ const getTypesDiets = async () => {
    *
    * FALTA GUARDARLA EN LA BASE DE DATOS
    */
-  const typesDiet = await axios.get(DB_URL);
+  const typesDiet = await axios.get(
+    `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
+  );
   const dato = typesDiet.data.results;
 
   const die = dato.map((elem) => elem.diets);

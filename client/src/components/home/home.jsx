@@ -33,6 +33,7 @@ export default function Home() {
 
   const [currenPage, setCurrentPage] = useState(1);
   const [recipesPage, setRecipesPage] = useState(9);
+  const [RecipesAll, setRecipesAll] = useState([]);
   const indexLastRecipe = currenPage * recipesPage;
   const indexFirstRecipe = indexLastRecipe - recipesPage;
   const currentRecipes = recipesAll.length
@@ -61,7 +62,10 @@ export default function Home() {
   function handleFilterBySource(evt) {
     dispatch(filterByResources(evt.target.value));
     setCurrentPage(1);
-    setOrder(`${evt.target.value}`);
+    // setOrder(`${evt.target.value}`);
+    // setRecipesAll(
+    //   recipesAll.filter((recipe) => recipe.source === evt.target.value)
+    // );
   }
 
   function handleFilterByOrder(evt) {
@@ -101,15 +105,11 @@ export default function Home() {
         <div className={styles.select}>
           <select
             defaultValue="Filter by Source"
-            onChange={(evt) => handleFilterBySource(evt)}
+            onChange={(e) => handleFilterBySource(e)}
           >
             <option disabled>Filter by Source</option>
-            <option key="crtd" value="created">
-              Created by user
-            </option>
-            <option key="aobtn" value="apiobtn">
-              API
-            </option>
+            <option value="string">Created by user</option>
+            <option value="api">API</option>
           </select>
         </div>
         <div className={styles.select}>
