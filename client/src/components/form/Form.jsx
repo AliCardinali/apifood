@@ -108,14 +108,13 @@ export default function Form() {
         <div>
           <label>Name</label>
           <input
-            // className={errors.name && "danger"}
-            placeholder="Ej: Strawberries with cream"
+            className={styles.controls}
             type="text"
-            name="name"
-            onChange={(e) => handleChange(e)}
-            value={input.name}
+            value={input.title}
+            name="title"
+            onChange={(evt) => handleChange(evt)}
           />
-          {!errors.name ? null : <p className={styles.danger}>{errors.name}</p>}
+          {errors.title && <p className="error">{errors.title}</p>}
         </div>
 
         <div>

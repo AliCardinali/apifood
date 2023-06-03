@@ -4,7 +4,7 @@ const { API_KEY, URL_SPOONACULAR } = process.env;
 
 const get_Api = async () => {
   // const response = await axios.get(
-  //   `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
+  //   `${URL_SPOONACULAR}/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
   // );
   const response = await axios.get(
     ` https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
@@ -60,7 +60,7 @@ const get_DataBase = async () => {
 
 const get_ApiID = async (id) => {
   // const apiId = await axios.get(
-  //   `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
+  //   `${URL_SPOONACULAR}/recipes/${id}/information?apiKey=${API_KEY}`
   // );
   const apiId = await axios.get(
     `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
