@@ -13,7 +13,7 @@ const getTypesDiets = async () => {
    * FALTA GUARDARLA EN LA BASE DE DATOS
    */
   const typesDiet = await axios.get(
-    `https://run.mocky.io/v3/84b3f19c-7642-4552-b69c-c53742badee5`
+    `${URL_SPOONACULAR}/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`
   );
   const dato = typesDiet.data.results;
 

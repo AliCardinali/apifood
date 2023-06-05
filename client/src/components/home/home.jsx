@@ -85,13 +85,14 @@ export default function Home() {
   return (
     <div>
       <div>
-        <SearchBar />
+        <SearchBar setCurrentPage={setCurrentPage} />
       </div>
       <div className={styles.option}>
         <div className={styles.select}>
           <select
             defaultValue="Filter by Order"
             onChange={(evt) => handleFilterByOrder(evt)}
+            setCurrentPage={setCurrentPage}
           >
             <option disabled>Filter by Order</option>
             <option key="up" value="up">
@@ -102,10 +103,12 @@ export default function Home() {
             </option>
           </select>
         </div>
+
         <div className={styles.select}>
           <select
             defaultValue="Filter by Source"
             onChange={(e) => handleFilterBySource(e)}
+            setCurrentPage={setCurrentPage}
           >
             <option disabled>Filter by Source</option>
             <option value="string">Created by user</option>
@@ -117,6 +120,7 @@ export default function Home() {
             defaultValue={"all"}
             name="diets"
             onChange={(evt) => handleFilterByDiets(evt)}
+            setCurrentPage={setCurrentPage}
           >
             <option value="all">Filter by type of diet</option>
             <option value="gluten free">Gluten Free</option>
@@ -138,6 +142,7 @@ export default function Home() {
           <select
             defaultValue="Order by score"
             onChange={(evt) => handleOrderByScore(evt)}
+            setCurrentPage={setCurrentPage}
           >
             <option disabled>Order by score</option>
             <option key="SSc" value="SSc"></option>
@@ -165,6 +170,7 @@ export default function Home() {
           <span id="span4"></span>
         </div>
       </div>
+
       <div className={styles.pagBody}>
         {recipesAll.length > 0 ? (
           <div className={styles.containerAll}>

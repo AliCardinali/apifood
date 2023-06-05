@@ -20,11 +20,17 @@ body {
 }
 
 .containerAll {
+  position: fixed;
   height: 600px;
-  top: 150px;
-  left: 300px;
+  top: 145px;
+  left: 20%;
   overflow: scroll;
   position: absolute;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
 
 .filter {
@@ -57,7 +63,7 @@ body {
 }
 
 .pagBody {
-  width: 900px;
+  /* width: 900px; */
 }
 
 .pagination {

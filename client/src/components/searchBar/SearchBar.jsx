@@ -6,13 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRecipesName, getRecipesAll } from "../../redux/action";
 import img from "../assets/food-logo.png";
 
-function SearchBar() {
+function SearchBar({ setCurrentPage }) {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
   function handleInput(evt) {
     evt.preventDefault();
     setName(evt.target.value);
+    setCurrentPage(1);
     // dispatch(getRecipesAll(evt.target.value));
   }
 
