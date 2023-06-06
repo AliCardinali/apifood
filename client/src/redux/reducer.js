@@ -23,7 +23,6 @@ const inicialState = {
 const rootReducer = (state = inicialState, action) => {
   switch (action.type) {
     case GET_RECIPES:
-      console.log(action.payload);
       return {
         ...state,
         recipes: action.payload,
@@ -36,18 +35,16 @@ const rootReducer = (state = inicialState, action) => {
       const newRecipeAdd = action.payload?.map((recipe) => {
         if (!nameRecipes.includes(recipe.name)) {
           addRecipe.push(recipe);
-          console.log(addRecipe);
         }
         return addRecipe;
       });
       return {
         ...state,
         recipes: action.payload,
-        recipesAll: newRecipeAdd,
+        // recipesAll: newRecipeAdd,
       };
 
     case GET_RECIPES_ID:
-      console.log(action.payload);
       return {
         ...state,
         detail: action.payload,
@@ -103,13 +100,13 @@ const rootReducer = (state = inicialState, action) => {
 
     case FILTER_BY_RESOURCES:
       const { id } = action;
-      //const isNumeric = !isNaN(id);
+
       const allRecipes1 = state.recipesAll;
       const statusFiltered2 =
         action.payload === "Filter by Source"
           ? allRecipes1.filter((el) => typeof el.id === "string")
           : allRecipes1.filter((el) => typeof el.id !== "number");
-      //console.log(statusFiltered2);
+
       return {
         ...state,
         recipes:

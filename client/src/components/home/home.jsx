@@ -40,8 +40,6 @@ export default function Home() {
     ? recipesAll.slice(indexFirstRecipe, indexLastRecipe)
     : [];
 
-  // console.log(recipesAll, "error");
-
   const Page = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -50,7 +48,6 @@ export default function Home() {
     console.log("default");
     dispatch(setDefaultCards());
     setCurrentPage(1);
-    setOrder(`${e.target.value}`);
   }
 
   function handleFilterByDiets(evt) {
@@ -62,10 +59,6 @@ export default function Home() {
   function handleFilterBySource(evt) {
     dispatch(filterByResources(evt.target.value));
     setCurrentPage(1);
-    // setOrder(`${evt.target.value}`);
-    // setRecipesAll(
-    //   recipesAll.filter((recipe) => recipe.source === evt.target.value)
-    // );
   }
 
   function handleFilterByOrder(evt) {
@@ -86,6 +79,13 @@ export default function Home() {
     <div>
       <div>
         <SearchBar setCurrentPage={setCurrentPage} />
+      </div>
+      <div className={styles.pagination}>
+        <Pagination
+          recipesPage={recipesPage}
+          recipesAll={recipesAll.length}
+          Page={Page}
+        />
       </div>
       <div className={styles.option}>
         <div className={styles.select}>
@@ -191,14 +191,6 @@ export default function Home() {
         ) : (
           <img src="../../assets/404-error.jpg"></img>
         )}
-      </div>
-
-      <div className={styles.pagination}>
-        <Pagination
-          recipesPage={recipesPage}
-          recipesAll={recipesAll.length}
-          Page={Page}
-        />
       </div>
     </div>
   );

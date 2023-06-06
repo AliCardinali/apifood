@@ -4,24 +4,12 @@ const axios = require("axios");
 const { API_KEY, URL_SPOONACULAR } = process.env;
 
 const getTypesDiets = async () => {
-  /** obtener en un array todos los tipos de dietas existentes,
-   * si no existe ni una dieta se debe prerecargar los datos,
-   * obtenerlas de la Api y guardarlas en la base de datos
-   *
-   *
-   *
-   * FALTA GUARDARLA EN LA BASE DE DATOS
-   */
   const typesDiet = await axios.get(
     `${URL_SPOONACULAR}/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`
   );
   const dato = typesDiet.data.results;
 
   const die = dato.map((elem) => elem.diets);
-  //   const filterDiets = die.filter((item, index) => {
-  //     return die.indexOf(item) === index;
-  //   })
-  // console.log(filterDiets);
   const eachDiets = [];
   for (let i = 0; i < die.length; i++) {
     for (let j = 0; j < die[i].length; j++) {

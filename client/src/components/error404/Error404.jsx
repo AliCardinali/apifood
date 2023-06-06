@@ -6,7 +6,6 @@ import styles from "../error404/Error404.module.css";
 function NotFound() {
   return (
     <div>
-      <NavBar></NavBar>
       <div className={styles.error}>
         <img src={notFound} alt="Not Found" className="images1" />
       </div>

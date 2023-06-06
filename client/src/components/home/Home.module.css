@@ -6,31 +6,39 @@ body {
 .cards {
   display: inline-flex;
   width: 200px;
+  margin-top: 3rem;
+  z-index: -1;
 }
 
 .option {
-  left: 0.5rem;
-  margin-bottom: 0.5rem;
-  margin-top: 0.5rem;
-  bottom: 1rem;
+  position: absolute;
+  /* left: 0.5rem; */
+  /* margin-bottom: 0.5rem;
+  margin-top: 0.5rem; */
+  /* bottom: 1rem; */
   background-color: rgba(223, 220, 57, 0.6);
-  width: 300px;
-  height: 680px;
+  width: 22%;
+  height: 50vh;
   background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .containerAll {
-  position: fixed;
   height: 600px;
   top: 145px;
   left: 20%;
-  overflow: scroll;
+  /* overflow: scroll; */
   position: absolute;
-  display: flex;
+  display: inline-flex;
+  margin-top: 20px;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  z-index: 12;
 }
 
 .filter {
@@ -44,18 +52,18 @@ body {
   width: 150px;
 }
 
-.link {
+/* .link {
   width: 150px;
-}
+} */
 
 .source {
   height: 80px;
   width: 150px;
 }
 
-.resetDefault {
+/* .resetDefault {
   width: 150px;
-}
+} */
 
 .diets {
   height: 300px;
@@ -67,8 +75,9 @@ body {
 }
 
 .pagination {
-  bottom: 30px;
+  bottom: 2rem;
   left: 850px;
+  margin-bottom: 2rem;
 }
 
 select {
@@ -120,11 +129,11 @@ select::-ms-expand {
 
 .btnNeon {
   position: relative;
-  display: inline-block;
+  /* display: flex; */
+  flex-direction: column;
   padding: 15px 30px;
   color: #fff;
   letter-spacing: 4px;
-  text-decoration: none;
   font-size: 16px;
   overflow: hidden;
   transition: 0.2s;
@@ -132,6 +141,11 @@ select::-ms-expand {
   width: 15em;
   background-color: #5439eb;
   background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+  /* z-index: 10; */
+  text-decoration: none;
 }
 .btnNeon:hover {
   background: #09cee0;

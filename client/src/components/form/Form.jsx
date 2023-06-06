@@ -22,7 +22,7 @@ export default function Form() {
     steps: "",
     diets: [],
   });
-  console.log(type);
+
   const [input, setInput] = useState({
     title: "",
     summary: "",
@@ -56,7 +56,6 @@ export default function Form() {
         diets: [...input.diets, evt.target.value],
       });
     }
-    console.log(input);
   }
 
   function handleNumber(evt) {

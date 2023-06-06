@@ -10,13 +10,12 @@ function Detail() {
   const dispatch = useDispatch();
   const detail = useSelector((state) => state.detail);
 
-  // console.log(detail);
   const { id } = useParams();
 
   useEffect(() => {
     dispatch(getRecipesId(id));
   }, [dispatch, id]);
-  // console.log(detail);
+
   return (
     <div className={styles.container}>
       <div>

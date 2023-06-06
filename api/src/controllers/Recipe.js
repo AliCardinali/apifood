@@ -54,7 +54,6 @@ const get_DataBase = async () => {
     };
   });
 
-  // console.log(data, "esto es la base de datos");
   return result;
 };
 
